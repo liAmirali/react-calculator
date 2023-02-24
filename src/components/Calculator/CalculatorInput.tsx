@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setInputValue } from "../../store/calculator";
-import { FC, ChangeEvent, useEffect } from "react";
+import { FC, ChangeEvent } from "react";
 import { IRootState } from "../../store";
+import { VALID_INPUT } from "./ButtonValues";
 
 const CalculatorInput: FC = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,14 @@ const CalculatorInput: FC = () => {
   const errorMessage = useSelector((state: IRootState) => state.calculator.errorMessage);
 
   const handleInputValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setInputValue(e.target.value));
+    dispatch(
+      setInputValue(
+        e.target.value
+          .split("")
+          .filter((char) => VALID_INPUT.includes(char))
+          .join("")
+      )
+    );
   };
 
   return (

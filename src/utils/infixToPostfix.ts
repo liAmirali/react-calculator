@@ -8,7 +8,7 @@ const isLeftAssociative = (operator: string) => {
 };
 
 export const infixToPostfix = (tokens: (string | number)[]) => {
-  const symbols: ReadonlyArray<string> = ["^", "*", "/", "+", "-", "(", ")"];
+  const operators: ReadonlyArray<string> = ["^", "*", "/", "+", "-"];
 
   const precedenceScore = {
     "^": 4,
@@ -20,10 +20,12 @@ export const infixToPostfix = (tokens: (string | number)[]) => {
   const queue = new Queue<number | string>();
   const stack = new Stack<number | string>();
 
+  console.log("tokens", tokens);
+
   for (let token of tokens) {
     if (typeof token === "number") {
       queue.enqueue(token);
-    } else if (symbols.includes(token)) {
+    } else if (operators.includes(token)) {
       while (true) {
         const topToken = stack.top();
         if (!topToken || topToken === "(") break;
@@ -43,17 +45,23 @@ export const infixToPostfix = (tokens: (string | number)[]) => {
       stack.push(token);
     } else if (token === "(") stack.push(token);
     else if (token === ")") {
+      console.log("HEREEEE");
       while (stack.size() !== 0 && stack.top() !== "(") queue.enqueue(stack.pop()!);
 
       /* If the stack runs out without finding a left parenthesis, then there are mismatched parentheses. */
-      if (stack.size() === 0 || stack.top() !== "(") throw new Error("Mismatched parentheses");
+      if (stack.size() === 0 || stack.top() !== "(") throw new Error("Mismatched parentheses1");
+      console.log("stack:", stack);
+      console.log("queue:", queue);
       stack.pop(); // pop the left parenthesis from the operator stack and discard it
     }
   }
 
+  console.log("stack:", stack);
+  console.log("queue:", queue);
+
   /* After the loop, pop the remaining items from the operator stack into the output queue. */
   while (stack.size() !== 0) {
-    if (stack.top() === "(") throw new Error("Mismatched parentheses");
+    if (stack.top() === "(") throw new Error("Mismatched parentheses2");
     queue.enqueue(stack.pop()!);
   }
 

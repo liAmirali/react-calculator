@@ -1,3 +1,5 @@
+export const VALID_INPUT: Readonly<string> = "()^*/+-.1234567890";
+
 export enum ButtonValues {
   LEFT_PARENTHESES = "(",
   RIGHT_PARENTHESES = ")",
