@@ -3,6 +3,7 @@ import { setInputValue } from "../../store/calculator";
 import { FC, ChangeEvent } from "react";
 import { IRootState } from "../../store";
 import { VALID_INPUT } from "./ButtonValues";
+import classNames from "../../utils/classNames";
 
 const CalculatorInput: FC = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,10 @@ const CalculatorInput: FC = () => {
       value={errorMessage || inputValue}
       type="text"
       name="calculator-input"
-      className="p-4 border-2 bg-[#865DFF] text-white outline-none border-[#865DFF] focus:border-white transition-all"
+      className={classNames(
+        !!errorMessage ? "bg-red-800 border-red-800" : "bg-[#865DFF]",
+        "p-4 border-2 text-white outline-none border-[#865DFF] focus:border-white transition-all"
+      )}
     />
   );
 };
