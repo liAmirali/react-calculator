@@ -21,7 +21,7 @@ const CalculatorButton: FC<propType> = (props) => {
 
   return (
     <button
-      className={classNames(props.className, "border border-red-200")}
+      className={classNames(props.className, "bg-[#FFA3FD] border border-[#E384FF] text-[#191825] active:bg-[#E384FF] hover:bg-[#e693ff] transition-all")}
       onClick={handleButtonClick}
     >
       {props.text}

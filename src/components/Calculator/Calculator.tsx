@@ -4,7 +4,7 @@ import Numpad from "./Numpad";
 
 const Calculator: FC = () => {
   return (
-    <div className="w-64 h-64 flex flex-col">
+    <div className="w-96 h-96 flex flex-col bg-white shadow-lg shadow-slate-700">
       <CalculatorInput />
       <Numpad />
     </div>

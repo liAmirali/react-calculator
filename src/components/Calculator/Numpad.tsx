@@ -3,7 +3,7 @@ import CalculatorButton from "./CalculatorButton";
 
 const Numpad = () => {
   return (
-    <div className="grid grid-rows-5 grid-cols-4 w-full h-full">
+    <div className="grid grid-rows-6 grid-cols-4 w-full h-full">
       {/* Row #0 */}
       <CalculatorButton text={ButtonValues.LEFT_PARENTHESES} className="col-span-2 row-span-1" />
       <CalculatorButton text={ButtonValues.RIGHT_PARENTHESES} className="col-span-2 row-span-1" />
