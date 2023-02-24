@@ -1,4 +1,6 @@
 export enum ButtonValues {
+  LEFT_PARENTHESES = "(",
+  RIGHT_PARENTHESES = ")",
   CLEAR = "Clear",
   BACKSPACE = "Backspace",
   POWER = "^",
