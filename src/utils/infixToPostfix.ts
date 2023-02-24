@@ -51,9 +51,6 @@ export const infixToPostfix = (tokens: (string | number)[]) => {
     }
   }
 
-  console.log(queue);
-  console.log(stack);
-
   /* After the loop, pop the remaining items from the operator stack into the output queue. */
   while (stack.size() !== 0) {
     if (stack.top() === "(") throw new Error("Mismatched parentheses");

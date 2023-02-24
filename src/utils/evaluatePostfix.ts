@@ -3,8 +3,6 @@ import { Stack } from "./Stack";
 export const evaluatePostfix = (postfix: (string | number)[]) => {
   const stack = new Stack<number>();
 
-  console.log("postfix:", postfix);
-
   for (let item of postfix) {
     if (typeof item === "number") {
       stack.push(item);

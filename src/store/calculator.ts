@@ -27,11 +27,10 @@ const calculatorSlice = createSlice({
       try {
         const postfix = infixToPostfix(tokenize(state.inputValue));
         const result = evaluatePostfix(postfix);
-        console.log("result", result);
+
         if (!result) throw new Error("Syntax error!");
         state.inputValue = result.toString();
       } catch (e) {
-        console.log("ohhh errorrr", e);
         if (typeof e === "string") {
           state.errorMessage = e;
         } else if (typeof e === "object" && "message" in e!) {

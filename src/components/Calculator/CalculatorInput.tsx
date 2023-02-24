@@ -12,10 +12,6 @@ const CalculatorInput: FC = () => {
     dispatch(setInputValue(e.target.value));
   };
 
-  useEffect(() => {
-    console.log(inputValue, errorMessage);
-  }, []);
-
   return (
     <input
       onChange={handleInputValueChange}
