@@ -46,14 +46,14 @@ export const infixToPostfix = (tokens: (string | number)[]) => {
       while (stack.size() !== 0 && stack.top() !== "(") queue.enqueue(stack.pop()!);
 
       /* If the stack runs out without finding a left parenthesis, then there are mismatched parentheses. */
-      if (stack.size() === 0 || stack.top() !== "(") throw new Error("Mismatched parentheses1");
+      if (stack.size() === 0 || stack.top() !== "(") throw new Error("Mismatched parentheses");
       stack.pop(); // pop the left parenthesis from the operator stack and discard it
     }
   }
 
   /* After the loop, pop the remaining items from the operator stack into the output queue. */
   while (stack.size() !== 0) {
-    if (stack.top() === "(") throw new Error("Mismatched parentheses2");
+    if (stack.top() === "(") throw new Error("Mismatched parentheses");
     queue.enqueue(stack.pop()!);
   }
 

@@ -5,12 +5,12 @@ const Numpad = () => {
   return (
     <div className="grid grid-rows-6 grid-cols-4 w-full h-full">
       {/* Row #0 */}
-      <CalculatorButton text={ButtonValues.LEFT_PARENTHESES} className="col-span-2 row-span-1" />
-      <CalculatorButton text={ButtonValues.RIGHT_PARENTHESES} className="col-span-2 row-span-1" />
+      <CalculatorButton text={ButtonValues.CLEAR} className="col-span-2 row-span-1" />
+      <CalculatorButton text={ButtonValues.BACKSPACE} className="col-span-2 row-span-1" />
 
       {/* Row #1 */}
-      <CalculatorButton text={ButtonValues.CLEAR} className="col-span-1 row-span-1" />
-      <CalculatorButton text={ButtonValues.BACKSPACE} className="col-span-1 row-span-1" />
+      <CalculatorButton text={ButtonValues.LEFT_PARENTHESES} className="col-span-1 row-span-1" />
+      <CalculatorButton text={ButtonValues.RIGHT_PARENTHESES} className="col-span-1 row-span-1" />
       <CalculatorButton text={ButtonValues.POWER} className="col-span-1 row-span-1" />
       <CalculatorButton text={ButtonValues.DIVISION} className="col-span-1 row-span-1" />
 
