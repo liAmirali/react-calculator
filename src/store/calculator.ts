@@ -43,9 +43,13 @@ const calculatorSlice = createSlice({
       state.inputValue = "";
       state.errorMessage = "";
     },
+    deleteLastChar(state) {
+      state.inputValue = state.inputValue.slice(0, state.inputValue.length - 1);
+    },
   },
 });
 
-export const { setInputValue, appendToInput, evaluateExpression, resetCalculator } = calculatorSlice.actions;
+export const { setInputValue, appendToInput, evaluateExpression, resetCalculator, deleteLastChar } =
+  calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
