@@ -7,9 +7,10 @@ export const tokenize = (rawStr: string) => {
   let isReadingANumber = false;
 
   for (let i = 0; i < rawStr.length; i++) {
-    if (rawStr[i] in symbols) {
+    if (symbols.includes(rawStr[i])) {
       if (isReadingANumber) {
         tokens.push(numberToPush);
+        numberToPush = "";
         isReadingANumber = false;
       }
 
@@ -17,11 +18,15 @@ export const tokenize = (rawStr: string) => {
     } else if (numbers.includes(rawStr[i])) {
       isReadingANumber = true;
       numberToPush += rawStr[i];
-    } else if (rawStr[i] == ".") {
+
+      // Popping the latest read number and adding the updated one
+      tokens.pop();
+      tokens.push(numberToPush);
+    } else if (rawStr[i] === ".") {
       if (numberToPush.includes(".")) throw new Error("Invalid input.");
 
       numberToPush += ".";
-    }
+    } else throw new Error("Invalid input.");
   }
 
   return tokens;

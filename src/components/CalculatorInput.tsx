@@ -1,12 +1,15 @@
 import { useDispatch } from "react-redux";
 import { setInputValue } from "../store/calculator";
-import React, { FormEvent } from "react";
+import React, { ChangeEvent } from "react";
+import { tokenize } from "../utils/tokenize";
 
 const CalculatorInput: React.FC = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleInputValueChange = (e: FormEvent) => {
-    dispatch(setInputValue(e));
+  const handleInputValueChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // e.preventDefault();
+
+    console.log(tokenize(e.target.value));
   };
 
   return (
