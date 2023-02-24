@@ -1,8 +1,9 @@
-import React from "react";
-import CalculatorInput from "./CalculatorInput";
+import { FC } from "react";
+import Calculator from "./Calculator/Calculator";
 
-const App: React.FC = () => {
-  return <CalculatorInput />;
+
+const App: FC = () => {
+  return <Calculator />
 };
 
 export default App;

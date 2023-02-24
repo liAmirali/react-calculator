@@ -1,5 +1,5 @@
 export class Queue<T> {
-  values: T[];
+  private values: T[];
 
   constructor() {
     this.values = [];

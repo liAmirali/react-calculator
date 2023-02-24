@@ -1,5 +1,5 @@
 export class Stack<T> {
-  values: T[];
+  private values: T[];
 
   constructor() {
     this.values = [];
