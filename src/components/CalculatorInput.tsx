@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { setInputValue } from "../store/calculator";
 import React, { ChangeEvent } from "react";
 import { tokenize } from "../utils/tokenize";
+import { infixToPostfix } from "../utils/infixToPostfix";
 
 const CalculatorInput: React.FC = () => {
   // const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const CalculatorInput: React.FC = () => {
   const handleInputValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     // e.preventDefault();
 
-    console.log(tokenize(e.target.value));
+    console.log(infixToPostfix(tokenize(e.target.value)));
   };
 
   return (

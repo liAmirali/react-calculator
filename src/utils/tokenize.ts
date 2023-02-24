@@ -9,19 +9,20 @@ export const tokenize = (rawStr: string) => {
   for (let i = 0; i < rawStr.length; i++) {
     if (symbols.includes(rawStr[i])) {
       if (isReadingANumber) {
-        tokens.push(numberToPush);
+        tokens.pop();
+        tokens.push(+numberToPush);
         numberToPush = "";
         isReadingANumber = false;
       }
 
       tokens.push(rawStr[i]);
     } else if (numbers.includes(rawStr[i])) {
-      isReadingANumber = true;
       numberToPush += rawStr[i];
 
       // Popping the latest read number and adding the updated one
-      tokens.pop();
-      tokens.push(numberToPush);
+      if (isReadingANumber) tokens.pop();
+      tokens.push(+numberToPush);
+      isReadingANumber = true;
     } else if (rawStr[i] === ".") {
       if (numberToPush.includes(".")) throw new Error("Invalid input.");
 
